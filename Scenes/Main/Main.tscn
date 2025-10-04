@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://2ajn46ojd0r2"]
+[gd_scene load_steps=7 format=3 uid="uid://2ajn46ojd0r2"]
 
 [ext_resource type="Texture2D" uid="uid://b2opofve3y3we" path="res://assets/backgrounds/GalaxyUno.png" id="1_i3fi7"]
+[ext_resource type="Script" uid="uid://ci3umf7uq8gxr" path="res://Scenes/Main/Main.gd" id="1_w20t6"]
 [ext_resource type="PackedScene" uid="uid://sqr4aejsdpl5" path="res://Scenes/Sun/Sun.tscn" id="2_o8wgc"]
+[ext_resource type="LabelSettings" uid="uid://5icbom02srn7" path="res://Scenes/Main/white_56.tres" id="2_w20t6"]
+[ext_resource type="PackedScene" uid="uid://cs7t1hs0rk1oo" path="res://Scenes/UiButton/UiButton.tscn" id="3_o8wgc"]
 [ext_resource type="AudioStream" uid="uid://ch61rkn7lovsl" path="res://assets/sounds/loops/TitleScreen.mp3" id="4_aw1lf"]
 
 [node name="Main" type="Control"]
@@ -12,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w20t6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -29,21 +33,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
+theme_override_constants/margin_left = 36
 theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
+theme_override_constants/margin_right = 36
 theme_override_constants/margin_bottom = 24
 
 [node name="Label" type="Label" parent="MC"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "SPACE ACE"
+label_settings = ExtResource("2_w20t6")
 
 [node name="VB" type="VBoxContainer" parent="MC"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 18
+
+[node name="PlayButton" parent="MC/VB" instance=ExtResource("3_o8wgc")]
+layout_mode = 2
+text = "Play"
+
+[node name="ExitButton" parent="MC/VB" instance=ExtResource("3_o8wgc")]
+layout_mode = 2
+text = "Exit"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_aw1lf")
@@ -53,3 +66,7 @@ autoplay = true
 [node name="Sun" parent="." instance=ExtResource("2_o8wgc")]
 position = Vector2(48, 50)
 scale = Vector2(0.3, 0.3)
+frame_progress = 0.875086
+
+[connection signal="pressed" from="MC/VB/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MC/VB/ExitButton" to="." method="_on_exit_button_pressed"]

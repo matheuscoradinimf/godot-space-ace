@@ -1,0 +1,11 @@
+res://Scenes/GameUi
+res://Scenes/HealthBar
+res://Scenes/Shield
+res://Scenes/Projectile/HomingMissile
+res://Scenes/Projectile
+res://Scenes/Projectile/BulletBase
+res://assets/misc
+res://Scenes/PowerUp
+res://Scenes/Explosion
+res://Scenes/Main
+res://Scenes/UiButton

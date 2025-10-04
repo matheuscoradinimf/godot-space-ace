@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://5icbom02srn7"]
+
+[ext_resource type="FontFile" uid="uid://c00yx7n2qxqrl" path="res://assets/fonts/Arena-rvwaK.ttf" id="1_3uc2y"]
+
+[resource]
+font = ExtResource("1_3uc2y")
+font_size = 56
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
