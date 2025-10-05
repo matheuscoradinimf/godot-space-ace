@@ -2,6 +2,11 @@
 
 A 2D space shooter game developed in Godot 4.4+ following the **Jumpstart to 2D Game Development: Godot 4.4+ for Beginners** course from Udemy.
 
+## Demo
+https://github.com/user-attachments/assets/f40d99b3-8753-47a3-9b07-bfd7550d2b02
+
+
+
 ## 🚀 About the Game
 
 SpaceAce is a classic space shooter where you control a spaceship and must survive waves of enemies, collect power-ups, and achieve the highest score possible.
