@@ -1,3 +1,10 @@
+res://Scenes/SaucerManager
+res://Scenes/WaveManager
+res://Resources
+res://Scenes/GameOverUi
+res://assets/sounds/misc
+res://Scenes/Enemies
+res://assets/ships
 res://Scenes/GameUi
 res://Scenes/HealthBar
 res://Scenes/Shield

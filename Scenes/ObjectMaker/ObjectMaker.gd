@@ -8,6 +8,7 @@ const POWER_UP: = preload("res://Scenes/PowerUp/PowerUp.tscn")
 const BULLET_PLAYER: = preload("res://Scenes/Projectile/BulletBase/BulletPlayer.tscn")
 const BULLET_ENEMY: = preload("res://Scenes/Projectile/BulletBase/BulletEnemy.tscn")
 const BULLET_BOMB: = preload("res://Scenes/Projectile/BulletBase/BulletBomb.tscn")
+const HOMING_MISSILE: = preload("res://Scenes/Projectile/HomingMissile/HomingMissile.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,11 +16,17 @@ func _ready() -> void:
 	SignalHub.on_create_explosion.connect(on_create_explosion)
 	SignalHub.on_create_power_up.connect(on_create_power_up)
 	SignalHub.on_create_bullet.connect(on_create_bullet)
+	SignalHub.on_create_homing_missile.connect(on_create_homing_missile)
+
 
 
 func add_object(obj: Node, pos: Vector2) -> void:
 	add_child(obj)
 	obj.global_position = pos
+
+func on_create_homing_missile(pos: Vector2) -> void:
+	var scene: HomingMissile = HOMING_MISSILE.instantiate()
+	call_deferred(ADD_OBJECT, scene, pos)
 
 func on_create_explosion(pos: Vector2, anim_name: String) -> void:
 	var scene: Explosion = EXPLOSION.instantiate()

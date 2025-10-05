@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dab81meur74a1"]
+
+[ext_resource type="Script" uid="uid://bejrjim1he8xf" path="res://Scenes/Enemies/EnemyBase.gd" id="1_srcxp"]
+[ext_resource type="PackedScene" uid="uid://qq0gjyel2fm6" path="res://Scenes/OutOfTime/OutOfTime.tscn" id="2_2a3kf"]
+[ext_resource type="PackedScene" uid="uid://cujnoybnypobp" path="res://Scenes/HealthBar/HealthBar.tscn" id="3_m1s7c"]
+
+[node name="EnemyBase" type="PathFollow2D"]
+z_index = 1
+rotates = false
+loop = false
+script = ExtResource("1_srcxp")
+
+[node name="OutOfTime" parent="." instance=ExtResource("2_2a3kf")]
+life_s = 30.0
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Booms" type="Node2D" parent="."]
+
+[node name="HealthBar" parent="." instance=ExtResource("3_m1s7c")]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

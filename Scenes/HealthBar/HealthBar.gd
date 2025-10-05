@@ -12,8 +12,6 @@ const COLOR_GOOD: Color = Color("#33cc33")
 @export var level_medium: int = 65
 @export var level_low: int = 30
 @export var start_health: int = 100
-@export var level_high: int = 100
-
 
 func _ready() -> void:
 	SignalHub.on_player_hit.connect(on_player_hit)

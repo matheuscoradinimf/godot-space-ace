@@ -7,10 +7,14 @@ signal on_create_explosion(pos: Vector2, anim_name: String)
 signal on_create_power_up(pos: Vector2, power_up_type: PowerUp.PowerUpType)
 signal on_create_bullet(pos: Vector2, dir: Vector2, speed: float, bullet_type: BulletBase.BulletType)
 signal on_player_health_bonus(v: int)
+signal on_create_homing_missile(pos: Vector2)
+signal on_player_died()
 
 func emit_on_player_hit(v: int) -> void:
 	on_player_hit.emit(v)
 
+func emit_on_player_died() -> void:
+	on_player_died.emit()
 
 func emit_on_score_updated(v: int):
 	on_score_updated.emit(v)
@@ -26,3 +30,6 @@ func emit_on_create_bullet(pos: Vector2, dir: Vector2, speed: float, bullet_type
 
 func emit_on_player_health_bonus(v: int) -> void:
 	on_player_health_bonus.emit(v)
+
+func emit_on_create_homing_missile(pos: Vector2) -> void:
+	on_create_homing_missile.emit(pos)
